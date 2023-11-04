@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice</title>
+    <style>
+        body {
+    background-color: #d8d7d7;
+    
+  }
+        
+
+        .invoice-title {
+            color: #8f8787;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .invoice-info {
+            color:#613864;
+            font-size: 18px;
+           
+            
+        }
+
+        .index-not-found {
+            color: #92253f; 
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="invoice-title">Invoice Information</h1>
+    {{#if indexNotfound}}
+    <p class="index-not-found">{{indexNotfound}}</p>
+    {{else}}
+    <p class="invoice-info">InvoiceNo for index {{index}}: {{invoiceNo}}</p>
+    {{/if}}
+</body>
+</html>

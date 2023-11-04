@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your head content here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            background-color: #53a8b6;
+            color: white;
+            padding: 20px;
+            font-size: 36px;
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Highlight rows with "zero" rating */
+        .zero-rating {
+            background-color: #d4a5a5; /* Customize the highlighting style */
+        }
+    </style>
+</head>
+<body>
+    <h1>All Sales Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Invoice ID</th>
+                <th>Branch</th>
+                <th>City</th>
+                <th>Customer Type</th>
+                <th>Product Line</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Payment</th>
+                <th>COGS</th>
+                <th>Gross Income</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each jsonData}}
+                <tr class="{{#isZeroRating (convertZero Rating)}}zero-rating{{/isZeroRating}}">
+                    <td>{{Invoice_ID}}</td>
+                    <td>{{Branch}}</td>
+                    <td>{{City}}</td>
+                    <td>{{Customer_type}}</td>
+                    <td>{{Product_line}}</td>
+                    <td>{{name}}</td>
+                    <td><img src="{{image}}" alt="Product Image" width="100" height="100"></td>
+                    <td>{{Unit_price}}</td>
+                    <td>{{Quantity}}</td>
+                    <td>{{Total}}</td>
+                    <td>{{Date}}</td>
+                    <td>{{Time}}</td>
+                    <td>{{Payment}}</td>
+                    <td>{{cogs}}</td>
+                    <td>{{gross_income}}</td>
+                    <td>{{convertZero Rating}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>
