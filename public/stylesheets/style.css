@@ -3,72 +3,85 @@ body {
     background-color: #f0f0f0;
     font-family: "Arial", sans-serif;
     text-align: center;
-     /* display: flex;  */
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
     padding: 0;
-  }
-  
-  /* Header styles for background and text color, and centered content */
-  header {
+}
+
+/* Header styles for background and text color, and centered content */
+header {
     background-color: #53a8b6;
     color: white;
     padding: 20px;
-  }
-  
-  header h1 {
+}
+
+header h1 {
     font-size: 36px;
     margin: 0;
-  }
-  
-  header h2 {
+}
+
+header h2 {
     font-size: 24px;
     margin: 0;
-  }
-  
-  /* Main content styles with padding and centered content */
-  /* Main content styles */
-/* Main content styles */
-/* Main content styles */
+}
+
+/* Navigation bar styles */
+nav {
+    background-color: #53a8b6;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
 /* Main content styles */
 main {
-    /* padding: 20px; */
-     /* flex: 1;  */
     background-color: #e3f6f5;
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
-    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Apply the box-shadow */
-    /* margin: 20px; Add some spacing around the main section */ */
 }
 
-
-  
-  
-  
-  /* Footer styles for background and text color, and sticky positioning at the bottom */
-  footer {
+/* Footer styles for background and text color, and sticky positioning at the bottom */
+footer {
     background-color: #53a8b6;
     color: white;
     padding: 10px;
-    /* position: absolute; */
     bottom: 0;
     width: 100%;
-  }
-  
-  /* Paragraph styles within the footer */
-  footer p {
+}
+
+/* Paragraph styles within the footer */
+footer p {
     font-size: 14px;
     margin: 0;
-  }
-  
-  /* Additional styling for links */
-  a {
+}
+
+/* Additional styling for links */
+a {
     color: #53a8b6;
     text-decoration: none;
-  }
-  
-  a:hover {
+}
+
+a:hover {
     text-decoration: underline;
-  }
+}

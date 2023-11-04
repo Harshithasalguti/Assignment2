@@ -12,14 +12,14 @@
 **/
 // Import required modules and libraries
    
-// const exphbs = require('express-handlebars'); // Handlebars.js for templating
+ const exphbs = require('express-handlebars'); // Handlebars.js for templating
 var express = require('express');
 var path = require('path');
 var app = express();
 const fs = require("fs").promises;
 
 // Define a custom Handlebars helper to access properties with spaces
-const exphbs = require('express-handlebars');
+// const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ extname: '.hbs' });
 
 // hbs.handlebars.registerHelper('isNotZero', function (value) {
@@ -69,7 +69,7 @@ app.set('view engine', 'hbs');
 
 (async () => {
     try {
-    //   const data = await fs.readFile(path.join(__dirname, 'ite5315-A1-Car_sales.json'), 'utf-8');
+      
       const data = await fs.readFile(path.join(__dirname, 'SuperSales.json'), 'utf-8');
       jsonData = JSON.parse(data);
       jsonData.forEach((item) => {
@@ -81,6 +81,14 @@ app.set('view engine', 'hbs');
             }
         }
     });
+    } catch (error) {
+      console.error('Error loading JSON data:', error);
+    }
+  })();
+  (async () => {
+    try {
+      const data1= await fs.readFile(path.join(__dirname, 'ite5315-A1-Car_sales.json'), 'utf-8');
+      jsonData1 = JSON.parse(data1);
     } catch (error) {
       console.error('Error loading JSON data:', error);
     }
@@ -105,7 +113,7 @@ app.get("/data", async (req, res) => {
 app.get('/data/invoiceNo/:index', (req, res) => {
     const index = req.params.index;
 
-    if (!jsonData) {
+    if (!jsonData1) {
       res.status(500).send('JSON data not loaded');
       return;
     }
@@ -133,12 +141,12 @@ app.get('/search/Manufacturer', async (req, res) => {
   app.post('/search/Manufacturer', (req, res) => {
     const enteredManufacturer = req.body.manufacturer.toLowerCase();
   
-    if (!jsonData) {
+    if (!jsonData1) {
       res.status(500).send('JSON data not loaded');
       return;
     }
   
-    const matchedCars = jsonData.carSales.filter((item) =>
+    const matchedCars = jsonData1.carSales.filter((item) =>
       item.Manufacturer.toLowerCase().includes(enteredManufacturer)
     );
   
@@ -163,12 +171,12 @@ app.get('/search/invoiceNo', async (req, res) => {
   app.post('/search/invoiceNo', (req, res) => {
     const enteredInvoiceNo = req.body.invoiceNo;
     
-    if (!jsonData) {
+    if (!jsonData1) {
       res.status(500).send('JSON data not loaded');
       return;
     }
   
-    const carSalesInfo = jsonData.carSales.find((item) => item.InvoiceNo === enteredInvoiceNo);
+    const carSalesInfo = jsonData1.carSales.find((item) => item.InvoiceNo === enteredInvoiceNo);
  
     if (carSalesInfo) {
         res.render('page/invoiceNo-result', carSalesInfo);
