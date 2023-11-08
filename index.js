@@ -22,9 +22,9 @@ const fs = require("fs").promises;
 // const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ extname: '.hbs' });
 
-// hbs.handlebars.registerHelper('isNotZero', function (value) {
-//     return value !== 0;
-//   });
+hbs.handlebars.registerHelper('isNotZero', function (value) {
+    return value !== 0;
+  });
 // Define a custom Handlebars helper to convert "0" to "zero"
 // Define a custom Handlebars helper to convert "0" to "zero"
 hbs.handlebars.registerHelper('convertZero', function (value) {
